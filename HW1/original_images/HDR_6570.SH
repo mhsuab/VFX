@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# HDR_6570.JPG from IMG_6570.JPG ... IMG_6578.JPG with aligning first
+
+align_image_stack -m -a HDR_AIS_6570 IMG_6570.JPG IMG_6571.JPG IMG_6572.JPG IMG_6573.JPG IMG_6574.JPG IMG_6575.JPG IMG_6576.JPG IMG_6577.JPG IMG_6578.JPG
+enfuse "$@"  --output=HDR_6570.JPG HDR_AIS_6570*
+rm HDR_AIS_6570*
