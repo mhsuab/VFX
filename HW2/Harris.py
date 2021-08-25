@@ -102,20 +102,17 @@ def CornerMatching(img1, img2, d1, d2):
 if __name__ == '__main__':
 # input images
     # cv2 image : b g r
-    print (args.read)
     if args.read:
         print ('LOAD images.......')
         images = np.load(os.path.join(args.directory, 'images.npy'))
         grayImages = np.load(os.path.join(args.directory, 'gray_images.npy'))
-        print (grayImages.dtype)
     else:
         images = readImage(args.directory, args.suffix)
-        print ('SAVE images......')
+        print ('SAVE images npy......')
         np.save(os.path.join(args.directory, 'images'), images)
         grayscale = lambda img: cv2.cvtColor(img, cv2.COLOR_BGR2GRAY).astype(np.float32)
         grayImages = np.array(list(map(grayscale, images)))
         np.save(os.path.join(args.directory, 'gray_images'), grayImages)
-        print (grayImages.dtype)
 # plot gray scale images
     # plotImages(grayImages, 'gray', 'grayImages')
 
@@ -149,6 +146,4 @@ if __name__ == '__main__':
         x2, y2 = cors[5][i]
         plt.plot([x1, x2+cols1], [y1, y2], c=[np.random.random(), np.random.random(), np.random.random()])
     plt.axis('off')
-    plt.savefig('t1')
-
-    # cv2.imwrite('concate.jpg', concateImg)
+    plt.savefig('concate')
