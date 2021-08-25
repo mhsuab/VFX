@@ -102,7 +102,7 @@ Stitch the images (in cylindrical coordinate) together with the help of matched 
 ## Difficulties
 + It may be impossible to align every part of the images
 
-| ![](https://i.imgur.com/stI4viy.png =500x215)|![](https://i.imgur.com/eVy4W0K.png =500x215) |
+| ![](https://i.imgur.com/stI4viy.png)|![](https://i.imgur.com/eVy4W0K.png) |
 | -------- | -------- |
 
 The above images are the alignment of the same two images but with different transformation matrix. We can see that while the image on the left successfully aligns the lights on the top-right, it fails to align the gate on the bottom-left. Meanwhile the image on the right aligns the gate successfully but fails to align the lights.
@@ -113,7 +113,7 @@ It seems that it is impossible to align every part of these two images only thro
 + For estimating the focal length, we have tried to the old 32-bit Windows version of autostitch. However, the result focal length seemed a bit wrong, which the corresponding result, *pano.jpg*, were not right either.
 
 ## Result
-![](https://i.imgur.com/QVU2jSJ.jpg =150%x)
+![](https://i.imgur.com/QVU2jSJ.jpg)
 ## What we have learned
 + The theory behind the making of panoramas
 + Different algorithms for feature detection and feature matching
