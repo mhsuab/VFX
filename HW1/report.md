@@ -1,5 +1,5 @@
 # VFX HW1 REPORT
-> B05901003 電機三 徐敏倩
+> B05901003 電機三 徐敏倩  
 > B06901062 電機三 陳彥霖
 
 ## Introduction
@@ -68,7 +68,7 @@ Assemble HDR Image using [Debevec's Method](https://http://www.pauldebevec.com/R
 
 ### Recover Response Curve
 Minimizing the following optimization equation to compute response curve.
-![](https://i.imgur.com/V7tAlc2.jpg =60%x)
+![](https://i.imgur.com/V7tAlc2.jpg)
 
 For each channel, call function **getCurve()** for it's response curve. 
 
@@ -78,7 +78,7 @@ For each channel, call function **getCurve()** for it's response curve.
     + Get response curve from the solution
  
 #### Response curve result
-![](https://i.imgur.com/OasryJ3.png =70%x)
+![](https://i.imgur.com/OasryJ3.png)
 
 ### Build Radiance Map
 + Construct weight function
@@ -90,7 +90,7 @@ Calculate each channel's sensor irradiance by calling function **createHDRImage(
 
 + Function **createHDRImage()**
      + Recover the natural log value of irradiance by response curves, weight function, and exposure time with the formula:
-         ![](https://i.imgur.com/nxr4ZD3.png =50%x)
+         ![](https://i.imgur.com/nxr4ZD3.png)
     and recover irradiance by the exponential value of lnE.
 	+ During our implementation, sum of weight may be 0, which causes the equation to crash. Therefore, for these cases, we default the denominator.
     
@@ -119,7 +119,7 @@ result = cv2.pow(img/255., 1.0/g)
 #### result
 > *g = 1.3*
 
-![](https://i.imgur.com/4ixGgjA.jpg =80%x)
+![](https://i.imgur.com/4ixGgjA.jpg)
 > From the image, we can find that even with *light tone* being overexposed the *dark tone* is still not bright enough to show all its details.
 
 ### Photographic Tone Reproduction (Global Operator)
@@ -152,7 +152,7 @@ However, being unable to implement a satisfying result by ourselves, showing det
 
 |*tonemap()*|*localtonemap()*|
 |:-:|:-:|
-|![](https://i.imgur.com/KPLZdrQ.jpg =400x)|![](https://i.imgur.com/NsRgkVR.jpg =400x)|
+|![](https://i.imgur.com/KPLZdrQ.jpg)|![](https://i.imgur.com/NsRgkVR.jpg)|
 Choose *localtonemape()* other than *tonemap()* due to our personal preference.
 
 #### adjust value of RangeCompression
@@ -162,7 +162,7 @@ Choose *localtonemape()* other than *tonemap()* due to our personal preference.
 #### adjust value of EnhanceContrast
 |0.3|0.5|0.7|
 |:-:|:-:|:-:|
-|![](https://i.imgur.com/4YOGw4E.jpg =250x)|![](https://i.imgur.com/yZSFwsU.jpg =250x)|![](https://i.imgur.com/42EZsEu.jpg =250x)|
+|![](https://i.imgur.com/4YOGw4E.jpg)|![](https://i.imgur.com/yZSFwsU.jpg)|![](https://i.imgur.com/42EZsEu.jpg)|
 ### Final Result
 > Choose tone-mapped image generated from *localtonemap()* with RangeCompression = 0.3 and EnhanceContrast = 0.7
 
@@ -171,8 +171,8 @@ Choose *localtonemape()* other than *tonemap()* due to our personal preference.
 ## Problem
 |![](https://i.imgur.com/2gktLIx.jpg)|![](https://i.imgur.com/u42F7b2.jpg)|
 |:-:|:-:|
-|weighting function: $w(z)$|weighting function: $w'(z)$|
-Since certain part of the intensity has almost same intensity in all 9 images, due to our weighting function $w(z)$, they may result in extremely small value. Therefore, to avoid the problem, we adjust our weighting function by shifting 10 unit higher, $w'(z) = w(z) + 10$.
+|weighting function: `w(z)`|weighting function: `w'(z)`|
+Since certain part of the intensity has almost same intensity in all 9 images, due to our weighting function `w(z)`, they may result in extremely small value. Therefore, to avoid the problem, we adjust our weighting function by shifting 10 unit higher, `w'(z) = w(z) + 10`.
 ![](https://i.imgur.com/GSXWnV8.png)
 
 
