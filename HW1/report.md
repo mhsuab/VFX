@@ -172,6 +172,7 @@ Choose *localtonemape()* other than *tonemap()* due to our personal preference.
 |![](https://i.imgur.com/2gktLIx.jpg)|![](https://i.imgur.com/u42F7b2.jpg)|
 |:-:|:-:|
 |weighting function: `w(z)`|weighting function: `w'(z)`|  
+
 Since certain part of the intensity has almost same intensity in all 9 images, due to our weighting function `w(z)`, they may result in extremely small value. Therefore, to avoid the problem, we adjust our weighting function by shifting 10 unit higher, `w'(z) = w(z) + 10`.
 ![](https://i.imgur.com/GSXWnV8.png)
 
